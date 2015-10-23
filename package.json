@@ -1,0 +1,32 @@
+{
+  "name": "homoglyph",
+  "version": "0.0.1",
+  "description": "Replace ascii chars with their same looking utf8 chars.",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "lint": "standard index.js dict.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cilice/homoglyph.git"
+  },
+  "keywords": [
+    "mimic",
+    "homoglyph",
+    "utf8",
+    "ascii",
+    "syntax",
+    "error"
+  ],
+  "author": "Alexander Plavinski <hello@cilice.me> (https://cilice.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cilice/homoglyph/issues"
+  },
+  "homepage": "https://github.com/cilice/homoglyph#readme",
+  "devDependencies": {
+    "ava": "^0.2.0",
+    "standard": "^5.3.1"
+  }
+}
