@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Replace ascii chars with their same looking utf8 chars.",
   "main": "index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "scripts": {
     "test": "ava",
     "lint": "standard index.js dict.js"
