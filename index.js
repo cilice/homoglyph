@@ -12,10 +12,8 @@ module.exports.encode = (text, opts) => {
     only: null
   }, opts)
 
-  const chance = Math.random() < (opts.probability / 100)
-  return replace(text, dict, chance)
+  return replace(text, dict, () => Math.random() < (opts.probability / 100))
 }
-
 
 function splice (str, index, count, add) {
   return str.slice(0, index) + add + str.slice(index + count)
@@ -24,11 +22,18 @@ function splice (str, index, count, add) {
 function replace (text, dict, condition) {
   const original = text
   let pos = 0
+
   for (let char of original) {
     const replacement = dict.get(char)
+
     if (replacement !== undefined) {
       const fakeLetter = Array.isArray(replacement) ? replacement[Math.floor(Math.random() * replacement.length)] : replacement
-      if (condition) text = splice(text, pos, 1, fakeLetter)
+
+      if (typeof condition === 'function') {
+        if (condition()) text = splice(text, pos, 1, fakeLetter)
+      } else {
+        text = splice(text, pos, 1, fakeLetter)
+      }
     }
 
     pos = pos + 1
