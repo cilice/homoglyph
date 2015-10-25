@@ -1,6 +1,6 @@
 {
   "name": "homoglyph",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Replace ascii chars with their same looking utf8 chars.",
   "main": "index.js",
   "engines": {
