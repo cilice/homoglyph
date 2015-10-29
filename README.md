@@ -1,4 +1,4 @@
-# homoglyph
+# homoglyph [![Build Status](https://travis-ci.org/cilice/homoglyph.svg?branch=master)](https://travis-ci.org/cilice/homoglyph)
 
 A port of [mimic](https://github.com/reinderien/mimic) to node.js.
 
