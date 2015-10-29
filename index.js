@@ -9,30 +9,33 @@ module.exports.decode = (text) => replace(text, reverse, true)
 module.exports.encode = (text, opts) => {
   opts = Object.assign({
     probability: 33,
-    only: null
+    chars: ''
   }, opts)
 
-  return replace(text, dict, () => Math.random() < (opts.probability / 100))
+  return replace(text, dict, () => Math.random() < (opts.probability / 100), opts)
 }
 
 function splice (str, index, count, add) {
   return str.slice(0, index) + add + str.slice(index + count)
 }
 
-function replace (text, dict, condition) {
+function replace (text, dict, condition, options) {
   const original = text
   let pos = 0
 
   for (let char of original) {
-    const replacement = dict.get(char)
+    const isInArray = (options.chars.length && options.chars.includes(char))
+    if (isInArray || !options.chars.length) {
+      const replacement = dict.get(char)
 
-    if (replacement !== undefined) {
-      const fakeLetter = Array.isArray(replacement) ? replacement[Math.floor(Math.random() * replacement.length)] : replacement
+      if (replacement !== undefined) {
+        const fakeLetter = Array.isArray(replacement) ? replacement[Math.floor(Math.random() * replacement.length)] : replacement
 
-      if (typeof condition === 'function') {
-        if (condition()) text = splice(text, pos, 1, fakeLetter)
-      } else {
-        text = splice(text, pos, 1, fakeLetter)
+        if (typeof condition === 'function') {
+          if (condition()) text = splice(text, pos, 1, fakeLetter)
+        } else {
+          text = splice(text, pos, 1, fakeLetter)
+        }
       }
     }
 

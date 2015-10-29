@@ -102,12 +102,12 @@ const dict = new Map()
 const reverse = new Map()
 
 for (let entry of homographs) {
-	entry = entry.split('')
-	const ascii = entry.splice(0, 1)[0]
-	for (let char of entry) {
-		reverse.set(char, ascii)
-	}
-	dict.set(ascii, entry)
+  entry = Array.from(entry)
+  const ascii = entry.splice(0, 1)[0]
+  for (let char of entry) {
+    reverse.set(char, ascii)
+  }
+  dict.set(ascii, entry)
 }
 
 module.exports.dict = dict
