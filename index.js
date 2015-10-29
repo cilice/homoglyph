@@ -5,7 +5,7 @@ const reverse = require('./dict').reverse
 
 module.exports.dict = dict
 module.exports.reverse = reverse
-module.exports.decode = (text) => replace(text, reverse, true)
+module.exports.decode = (text) => replace(text, reverse, true, { chars: '' })
 module.exports.encode = (text, opts) => {
   opts = Object.assign({
     probability: 33,
