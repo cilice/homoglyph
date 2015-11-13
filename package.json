@@ -7,8 +7,7 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "ava",
-    "lint": "standard index.js dict.js"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -29,7 +28,6 @@
   },
   "homepage": "https://github.com/cilice/homoglyph#readme",
   "devDependencies": {
-    "ava": "^0.2.0",
-    "standard": "^5.3.1"
+    "ava": "^0.4.1"
   }
 }

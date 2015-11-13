@@ -3,10 +3,18 @@
 const dict = require('./dict').dict
 const reverse = require('./dict').reverse
 
-module.exports.dict = dict
-module.exports.reverse = reverse
-module.exports.decode = (text) => replace(text, reverse, true, { chars: '' })
-module.exports.encode = (text, opts) => {
+module.exports = {
+  dict,
+  reverse,
+  decode,
+  encode
+}
+
+function decode (text) {
+  return replace(text, reverse, true, { chars: '' })
+}
+
+function encode (text, opts) {
   opts = Object.assign({
     probability: 33,
     chars: ''

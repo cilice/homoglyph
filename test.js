@@ -1,15 +1,17 @@
 import test from 'ava'
-import { encode, decode, dict, reverse } from './'
+import homoglyph from './'
 
 test('encode', t => {
-  const output = encode('text ;', { probability: 100, chars: ' ;' })
-  t.pass(output)
+  const text = 'text ;'
+  const output = homoglyph.encode(text, { probability: 100, chars: ' ;' })
+  t.not(output, text)
   t.end()
 })
 
 test('decode', t => {
-  const input = encode('text ;', { probability: 100 })
-  const output = decode(input)
-  t.pass()
+  const text = 'text ;'
+  const input = homoglyph.encode(text, { probability: 100 })
+  const output = homoglyph.decode(input)
+  t.same(output, text)
   t.end()
 })
