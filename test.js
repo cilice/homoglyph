@@ -5,7 +5,6 @@ test('encode', t => {
   const text = 'text ;'
   const output = homoglyph.encode(text, { probability: 100, chars: ' ;' })
   t.not(output, text)
-  t.end()
 })
 
 test('decode', t => {
@@ -13,5 +12,4 @@ test('decode', t => {
   const input = homoglyph.encode(text, { probability: 100 })
   const output = homoglyph.decode(input)
   t.same(output, text)
-  t.end()
 })
