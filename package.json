@@ -28,6 +28,6 @@
   },
   "homepage": "https://github.com/cilice/homoglyph#readme",
   "devDependencies": {
-    "ava": "^0.7.0"
+    "ava": "^0.9.0"
   }
 }
